@@ -13,8 +13,21 @@ async function register(req, res) {
         const {email, name, password, role} = req.body
         const hash = hashPassword(password)
         const result  = await User.create({email, name, password: hash, role});
+        let payload = {
+            id: result._id,
+            email: result.email,
+            name: result.name,
+            role: result.role
 
-        console.log('result register', result)
+        }
+        let token = tokenGenerate(payload);
+    
+        res.status(200).json({
+            message: 'success login',
+            token
+            
+        })
+        
     } catch (error) {
         console.log("error register ===>", error)
     }
@@ -32,7 +45,7 @@ async function login(req, res) {
     
         try {
             const {email, password} = req.body
-
+            const hash = hashPassword(password)
     const result = await User.findOne({
         email 
     })
@@ -76,9 +89,11 @@ async function login(req, res) {
         }
     }
 
+   
 
 module.exports = {
     login, 
-    register
+    register, 
+
 }
 
