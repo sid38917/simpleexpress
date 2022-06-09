@@ -7,13 +7,13 @@ async function authentication(req, res, next) {
         const token = req.headers.token
         console.log(req.headers);
         if(!token) {
-            res.status(403).json('tidak memilki akses')
+            res.status(403).json('dont have access')
         }
         const user = verifyToken(token)
         const result = await User.findOne({email: user.email})
         console.log('result check user', result)
         if(!result) {
-            res.status(403).json('tidak memiliki akses')
+            res.status(403).json('dont have access')
         } else {
             req.user = result;
             next()

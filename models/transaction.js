@@ -1,44 +1,47 @@
 const mongoose = require('mongoose')
 
 const transactionSchema = new mongoose.Schema({
-    user: {
+    customer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     }, 
-    address: {
-        name: String, 
+    delivery: {
+        firstName: String, 
+        lastName: String,
         phone: String,
-        street: String,
         province: String, 
         city: String, 
         country: String, 
+        postCode: String,
+        address: String
 
     }, 
-    product: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'product' //refrence product, find the product and use it here 
-    },
-    measurements: [
+    shipping: Number,
+    itemsTotal: Number,
+    total: Number,
+    
+    items: [
         {
-            key: String,  //ex. neck
-            value: String //value inputted by neck
-        }
+            fabric:{}, //array
+            customize: [], //array of objects, multiple arrays 
+            measurement: [],
+            product: String //name of the product 
+        },
     ],
-    fabrics: 
-        {
-            key: String, //ex fabrics
-            value: String //fabric choice
-        }
-    ,
-    customizes: [
-        {
-            key: String,   //ex. styling options
-            value: String //styling choices
-        }
-    ]
+    status: String ,
+    payment: {
+        token: String, 
+        // redirect_url: String
+    },
+    // paymentResult: {}
+
+}, {timestampts: true});
+
+
+   
 
     
-});
+
 
 
 

@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const PORT = 3000
-const router = require('./routes/userRouter')
+const PORT = 4000
+const router = require('./routes/index')
+const cors = require('cors')
 
 const mongoose = require('mongoose')
 mongoose.set('useCreateIndex', true)
@@ -9,13 +10,16 @@ mongoose.set('useCreateIndex', true)
 app.use(express.urlencoded ({
     extended: false
 }))
+app.use(cors())
+
 
 const uri = "mongodb+srv://sid38917:sid786786@cluster0.7qpjf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uriLocal = 'mongodb://localhost:27017/myapp'
 
 app.use(express.json())
 
 
-mongoose.connect(uri, {
+mongoose.connect(uriLocal, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }, () => {
