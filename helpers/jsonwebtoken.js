@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 
+//obtained through online sources 
+
 function tokenGenerate(payload) { //
     return jwt.sign(payload, 'SECRET');
 }

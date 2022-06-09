@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs')
 
+
+//obtained through online sources
 function hashPassword(password) {
     const salt = bcrypt.genSaltSync(10); 
     const hash = bcrypt.hashSync(password, salt);

@@ -1,14 +1,30 @@
 const mongoose = require('mongoose');
 
-const fabricSchema = new mongoose.Schema({
+const FabricSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: true
+    }, 
+    type: {
+        type: String,
+        required: true
     },
-    imageUrl: String,
-    fabricType: String,
-    price: String,
-});
+    image: {
+        type: String,
+        required: true
+    }, 
+    product: {
+        type: String,
+        required: true
+    }, 
+    price: {
+        type: Number,
+        required: true
 
-const fabric = mongoose.model('fabric', fabricSchema);
-module.exports = fabric;
+    }
+
+})
+
+const fabric = mongoose.model('fabric', FabricSchema)
+
+module.exports = fabric

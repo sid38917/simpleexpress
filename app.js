@@ -13,13 +13,13 @@ app.use(express.urlencoded ({
 app.use(cors())
 
 
-const uri = "mongodb+srv://sid38917:sid786786@cluster0.7qpjf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const uriLocal = 'mongodb://localhost:27017/myapp'
+const url = "mongodb+srv://sid38917:sid786786@cluster0.7qpjf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const urlLocal = 'mongodb://localhost:27017/myapp'
 
 app.use(express.json())
 
 
-mongoose.connect(uriLocal, {
+mongoose.connect(urlLocal, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 }, () => {
