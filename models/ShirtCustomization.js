@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ShirtCustomizationSchema = new mongoose.schema({
+const ShirtCustomizationSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -15,6 +15,6 @@ const ShirtCustomizationSchema = new mongoose.schema({
     }, 
 })
 
-const ShirtCustomization = mongoose.model('ShirtCUstomization', ShirtCustomizationSchema)
+const ShirtCustomization = mongoose.model('ShirtCustomization', ShirtCustomizationSchema)
 
 module.exports = ShirtCustomization

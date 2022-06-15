@@ -25,6 +25,8 @@ const addTrouserCustomization = async (req, res, next) => {
 
 const getTrouserCustomization = async (req, res) => {
 
+    const {name, category, image} = req.body;
+
     try{
         const result = await TrouserCustomization.find({})
 

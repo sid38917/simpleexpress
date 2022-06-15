@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const SuitCustomizationSchema = new mongoose.schema({
+const SuitCustomizationSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true

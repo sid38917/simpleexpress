@@ -2,6 +2,8 @@ const ShirtCustomization = require('../models/ShirtCustomization')
 
 const addShirtCustomization = async (req, res, next) => {
 
+    const {name, category, image} = req.body;
+
     try {
         const result = await ShirtCustomization.create({name, category, image})
 
@@ -27,7 +29,7 @@ const getShirtCustomization = async (req, res) => {
 
         if(result) {
 
-            res.status(400).json({
+            res.status(200).json({
                 data: result,
                 status: 'success',
                 message: 'success add shirt'

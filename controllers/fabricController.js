@@ -2,10 +2,10 @@ const Fabric = require('../models/Fabric');
 
 const addFabric = async (req, res, next) => {
 
-    const {name, type, color, image, product, price} = req.body;
+    const {code, name, color, pattern, composition, image, price} = req.body;
 
     try {
-        const result = await Fabric.create({name, type, color, image, product, price})
+        const result = await Fabric.create({code, name, color, pattern, composition, image, price})
         if(result) {
             res.status(200).json({
                 data: result, 
