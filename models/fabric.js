@@ -25,27 +25,27 @@ const FabricSchema = new mongoose.Schema({
         type: String, 
         required: true
     },
-    price: {
-        suitPrice: Number,
-        shirtPrice: Number,
+    price: [{
+        name: String,
+        price: Number
 
-        trouserPrice: Number,
-        jacketPrice: Number,
+    }]
+        // suitPrice: Number,
+        // shirtPrice: Number,
 
-        overcoatPrice: Number,
+        // trouserPrice: Number,
+        // jacketPrice: Number,
 
-        vestsPrice: Number,
+        // overcoatPrice: Number,
 
-        jeansPrice: Number,
+        // vestsPrice: Number,
 
-        waistcoatPrice: Number,
-        poloshirttPrice: Number,
-        batikPrice: Number,
+        // jeansPrice: Number,
 
-//overcoat, vests, jeans, waistcoat, tuxedo, polo shirts, Batik
-
-
-    }
+        // waistcoatPrice: Number,
+        // poloshirttPrice: Number,
+        // batikPrice: Number,
+ 
 
 
    

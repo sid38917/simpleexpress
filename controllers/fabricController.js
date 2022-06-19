@@ -23,6 +23,30 @@ const addFabric = async (req, res, next) => {
 
 }
 
+const updatePrice = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const{price} = req.body
+        const result = await Fabric.updateOne({_id:id}, {price})
+
+        if(result) {
+        
+        res.status(200).json({
+            data: result,
+            status: 'success',
+            status: 'success update price'
+        })
+    }
+
+    }catch (err) {
+        console.log('error update price', err)
+        res.status(400).json({
+            status: 'error',
+            message: 'error input fabric'
+        })
+    }
+}   
+
 const getFabric = async (req, res) => {
     try {
         const result = await Fabric.find({})
@@ -46,5 +70,5 @@ const getFabric = async (req, res) => {
 } 
 
 module.exports = {
-    addFabric, getFabric
+    addFabric, getFabric, updatePrice
 }
